@@ -1,0 +1,15 @@
+version: '3'
+services:
+  spring-app:
+    image: rihabbelhadj/devops-integration
+    ports:
+      - "9091:9090"
+    environment:
+      SPRING_DATA_MONGODB_URI: "mongodb://mongo:27018/mydatabase"
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    volumes:
+      - ./mongo-data:/data/db
